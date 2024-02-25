@@ -1,19 +1,18 @@
 package shapes;
+import java.lang.Math;
 
 public class Cone extends GeometricShape {
     private double height;
-    private double side;
+    private double radius;
 
     @Override
     public double calculateBaseArea() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calculateBaseArea'");
+        return Math.PI*Math.pow(radius, 2);
     }
 
     @Override
     public double calculateVolume() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calculateVolume'");
+        return calculateBaseArea()*(1/3)*height;
     }
 
     @Override
