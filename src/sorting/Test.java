@@ -44,6 +44,10 @@ public class Test {
 		for(Integer n : arr5) {
 			System.out.println(n);
 		}
+		
+		String hello = "hello";
+		String identifier = String.valueOf(hello.charAt(0));
+		System.out.println(identifier);
 	}
 
 }
