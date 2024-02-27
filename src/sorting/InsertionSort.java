@@ -1,7 +1,7 @@
 package sorting;
 
-public class InsertionSort<T extends Comparable<T>> {
-    public T[] insertionSort(T[] arr) {
+public class InsertionSort {
+    public static <T extends Comparable<T>> void insertionSort(T[] arr) {
         for (int i = 1; i < arr.length; i++) {
             T currentVal = arr[i];
             int j = i - 1;
@@ -11,6 +11,6 @@ public class InsertionSort<T extends Comparable<T>> {
             }
             arr[j + 1] = currentVal;
         }
-        return arr;
+        
     }
 }

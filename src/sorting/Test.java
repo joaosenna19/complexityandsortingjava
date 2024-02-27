@@ -3,9 +3,9 @@ package sorting;
 public class Test {
 
 	public static void main(String[] args) {
-		BubbleSort<Integer> b = new BubbleSort<Integer>();
+		System.out.println("******************BubbleSort");
 		Integer[] arr = {2, 5, 1, 9, 4, 3};
-		b.bubbleSort(arr);
+		BubbleSort.bubbleSort(arr);
 		for(Integer n : arr) {
 			System.out.print(n + " ");
 		}
@@ -13,27 +13,24 @@ public class Test {
 		System.out.println();
 		System.out.println("******************Selection");
 		
-		SelectionSort<Integer> s = new SelectionSort<Integer>();
 		Integer[] arr2 = {2, 5, 1, 9, 4, 3};
-		s.selectionSort(arr2);
+		SelectionSort.selectionSort(arr2);
 		for(Integer n : arr2) {
 			System.out.print(n + " ");
 		}
 		System.out.println();
 		System.out.println("******************Insertion");
 		
-		InsertionSort<Integer> i = new InsertionSort<Integer>();
 		Integer[] arr3 = {2, 5, 1, 9, 4, 3, 0};
-		i.insertionSort(arr3);
+		InsertionSort.insertionSort(arr3);
 		for(Integer n : arr3) {
 			System.out.print(n + " ");
 		}
 		System.out.println();
 		System.out.println("******************Merge");
 		
-		MergeSort<Integer> m = new MergeSort<Integer>();
-		Integer[] arr4 = {2, 5, 1, 9, 4, 3, 0, 10, 25, 44};
-		arr4 = m.mergeSort(arr4);
+		Integer[] arr4 = {2, 5, 1, 9, 4, 3, 0, 10, 25, 44, 5};
+		arr4 = MergeSort.mergeSort(arr4);
 		for(Integer n : arr4) {
 			System.out.print(n + " ");
 		}
@@ -47,11 +44,10 @@ public class Test {
 			System.out.print(n + " ");
 		}
 		System.out.println();
-		System.out.println("******************");
+		System.out.println("******************HeapSort");
 		
-		Integer[] arr6 = {12, 11, 13, 5, 6, 7};
-        HeapSort<Integer> h = new HeapSort<>();
-        h.heapSort(arr6);
+		Integer[] arr6 = {12, 11, 13, 5, 6, 7, 1};
+        HeapSort.heapSort(arr6);
 
         for (Integer n : arr6) {
             System.out.print(n + " ");
