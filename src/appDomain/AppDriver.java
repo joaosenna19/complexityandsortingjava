@@ -168,7 +168,7 @@ public class AppDriver
      			if (compareByHeight) {
      	            InsertionSort.insertionSort(shapesArray);
      	        } else {
-     	        	System.out.println("Faltou implementar insertion sort aqui");
+     	        	InsertionSort.insertionSort(shapesArray, comparisonType);
      	        }
          		// Recording current time AFTER the sorting algorithm ran
          		algEndTime = System.currentTimeMillis();
