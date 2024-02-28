@@ -20,8 +20,10 @@ public class AppDriver
 		String sortingAlgorithm = "";
 		
 		Comparator<GeometricShape> comparisonType = null;
+		boolean compareByHeight = true;
 		
-		
+		long algStartTime;
+ 		long algEndTime;
 		
 		//Evaluating user input args:
 		if (args.length !=3) {
@@ -120,44 +122,109 @@ public class AppDriver
      		switch(userInputComparisonType) {
      		case "v":
      			comparisonType = new VolumeComparator();
+     			compareByHeight = false;
      			break;
      		case "a":
      			comparisonType = new BaseAreaComparator();
+     			compareByHeight = false;
+     			break;
+     		case "h":
      			break;
      		default:
      			System.out.println("Oh no something went wrong");
      		}
      		
-     		
+     		//Recording current time BEFORE the sorting algorithm ran
+     		algStartTime = System.currentTimeMillis();
      		
      		//sorting according to user input
      		switch(sortingAlgorithm) {
+     			
      		case "b":
-     			BubbleSort.bubbleSort(shapesArray, comparisonType);
-				for (GeometricShape n : shapesArray) {
-     			System.out.println(n.calculateBaseArea() + " ");
-				}
+     			if (compareByHeight) {
+     	            BubbleSort.bubbleSort(shapesArray);
+     	        } else {
+     	            BubbleSort.bubbleSort(shapesArray, comparisonType);
+     	        }
+         		// Recording current time AFTER the sorting algorithm ran
+         		algEndTime = System.currentTimeMillis();
+         		// Printing time spent
+         		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
+     			
      			break;
      		case "s":
+     			if (compareByHeight) {
+     	            SelectionSort.selectionSort(shapesArray);
+     	        } else {
+     	        	SelectionSort.selectionSort(shapesArray, comparisonType);
+     	        }
+         		// Recording current time AFTER the sorting algorithm ran
+         		algEndTime = System.currentTimeMillis();
+         		// Printing time spent
+         		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
      			
      			break;
      		case "i":
+     			if (compareByHeight) {
+     	            InsertionSort.insertionSort(shapesArray);
+     	        } else {
+     	        	System.out.println("Faltou implementar insertion sort aqui");
+     	        }
+         		// Recording current time AFTER the sorting algorithm ran
+         		algEndTime = System.currentTimeMillis();
+         		// Printing time spent
+         		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
      			
      			break;
      		case "m":
+     			if (compareByHeight) {
+     	            MergeSort.mergeSort(shapesArray);
+     	        } else {
+     	        	MergeSort.mergeSort(shapesArray, comparisonType);
+     	        }
+         		// Recording current time AFTER the sorting algorithm ran
+         		algEndTime = System.currentTimeMillis();
+         		// Printing time spent
+         		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
+         		
+         		SnapshotPrinter.printSnapshot(shapesArray, userInputComparisonType);
      			
      			break;
      		case "q":
+     			if (compareByHeight) {
+     				System.out.println("Faltou implementar quickSort aqui");
+     	        } else {
+     	        	System.out.println("Faltou implementar quickSort aqui");
+     	        }
+         		// Recording current time AFTER the sorting algorithm ran
+         		algEndTime = System.currentTimeMillis();
+         		// Printing time spent
+         		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
      			
      			break;
      		case "z":
-     			
+     			if (compareByHeight) {
+     	            HeapSort.heapSort(shapesArray);
+     	        } else {
+     	            HeapSort.heapSort(shapesArray, comparisonType);
+     	        }
+         		// Recording current time AFTER the sorting algorithm ran
+         		algEndTime = System.currentTimeMillis();
+         		// Printing time spent
+         		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
+         		
      			break;
      		}
-        	 
+     		
+        	
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	private static void displayElements() {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -17,7 +17,7 @@ public class Cone extends GeometricShape {
 
     @Override
     public double calculateVolume() {
-        return calculateBaseArea()*(1/3)*height;
+        return calculateBaseArea()*(0.3333333)*height;
     }
 
     @Override

@@ -1,0 +1,11 @@
+10
+OctagonalPrism 10 10
+Pyramid 9 9
+TriangularPrism 8 8
+Cylinder 7 7
+Pyramid 6 6
+Pyramid 5 5
+Cone 4 4
+PentagonalPrism 3 3
+PentagonalPrism 2 2
+TriangularPrism 1 1

@@ -18,7 +18,7 @@ public class Pyramid extends GeometricShape
 
     @Override
     public double calculateVolume() {
-        return calculateBaseArea()*height*(1/3);
+        return calculateBaseArea()*height*(0.333333333);
     }
 
     @Override
