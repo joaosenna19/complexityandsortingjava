@@ -6,6 +6,11 @@ public class SquarePrism extends GeometricShape
 
     private double height;
     private double side;
+    
+    public SquarePrism (double height, double side) {
+    	this.height = height;
+    	this.side = side;
+    }
 
     @Override
     public double calculateBaseArea() {

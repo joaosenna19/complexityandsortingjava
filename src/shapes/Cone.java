@@ -4,6 +4,11 @@ import java.lang.Math;
 public class Cone extends GeometricShape {
     private double height;
     private double radius;
+    
+    public Cone (double height, double radius) {
+    	this.height = height;
+    	this.radius = radius;
+    }
 
     @Override
     public double calculateBaseArea() {

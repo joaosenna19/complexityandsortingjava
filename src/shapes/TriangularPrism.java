@@ -6,6 +6,11 @@ public class TriangularPrism extends GeometricShape
 
     private double height;
     private double side;
+    
+    public TriangularPrism (double height, double side) {
+    	this.height = height;
+    	this.side = side;
+    }
 
     @Override
     public double calculateBaseArea() {

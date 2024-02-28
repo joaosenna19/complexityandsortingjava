@@ -1,19 +1,27 @@
 package appDomain;
 import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
 import java.io.File;
-import shapes.
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Comparator;
+import sorting.*;
+import utilities.*;
+import shapes.*;
 
 public class AppDriver
 {
 
-	public static void main( String[] args )
+	public static void main( String[] args ) throws FileNotFoundException
 	{
 		
 		String fileName = "";
-		String comparisonType = "";
+		String userInputComparisonType = "";
 		String sortingAlgorithm = "";
+		
+		Comparator<GeometricShape> comparisonType = null;
+		
+		
 		
 		//Evaluating user input args:
 		if (args.length !=3) {
@@ -36,7 +44,7 @@ public class AppDriver
 			case "t":
 				String tValue = String.valueOf(args[i].charAt(2)).toLowerCase();
 				 if (tValue.equals("v") || tValue.equals("h") || tValue.equals("a")) {
-                     comparisonType = tValue;
+					 userInputComparisonType = tValue;
                  } else {
                      System.out.println("Invalid comparison type specified.");
                      return;
@@ -59,18 +67,97 @@ public class AppDriver
 			}
 		}
 		
-		//Reading the file and creating the array of objects:
-		try {
-			//Creating a FileReader Object and then passing it into a BufferedReader object
-			FileReader fileReader = new FileReader(fileName);
-			BufferedReader reader = new BufferedReader(fileReader);
-			
-			GeometricShape[] shapes = new GeometricShape[2];
-			
-		} 
-		
-		catch (Exception e) {
-			e.getStackTrace();
+        try {
+        	 // File path is passed as parameter
+            File file = new File(fileName);
+     
+            // Creating an object of BufferedReader class
+            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+     
+            // Declaring a string variable
+            String line;
+            
+        	GeometricShape[] shapesArray = new GeometricShape[Integer.parseInt(reader.readLine())];
+        	 for (int lineNumber = 1; (line = reader.readLine()) != null; lineNumber++) {
+                	 String[] explodedLine = line.split(" ");
+                	 String typeOfShape = explodedLine[0];
+                	 
+                	 switch(typeOfShape) {
+                	 case "Cone":
+                		 Cone cone = new Cone(Double.parseDouble(explodedLine[1]), Double.parseDouble(explodedLine[2]));
+                		 shapesArray[lineNumber-1] = cone;
+                		 break;
+                	 case "Cylinder":
+                		 Cylinder cylinder = new Cylinder(Double.parseDouble(explodedLine[1]), Double.parseDouble(explodedLine[2]));
+                		 shapesArray[lineNumber-1] = cylinder;
+                		 break;
+                	 case "OctagonalPrism":
+                		 OctagonalPrism octagonalPrism = new OctagonalPrism(Double.parseDouble(explodedLine[1]), Double.parseDouble(explodedLine[2]));
+                		 shapesArray[lineNumber-1] = octagonalPrism;
+                		 break;
+                	 case "PentagonalPrism":
+                		 PentagonalPrism pentagonalPrism = new PentagonalPrism(Double.parseDouble(explodedLine[1]), Double.parseDouble(explodedLine[2]));
+                		 shapesArray[lineNumber-1] = pentagonalPrism;
+                		 break;
+                	 case "Pyramid":
+                		 Pyramid pyramid = new Pyramid(Double.parseDouble(explodedLine[1]), Double.parseDouble(explodedLine[2]));
+                		 shapesArray[lineNumber-1] = pyramid;
+                		 break;
+                	 case "SquarePrism":
+                		 SquarePrism squarePrism = new SquarePrism(Double.parseDouble(explodedLine[1]), Double.parseDouble(explodedLine[2]));
+                		 shapesArray[lineNumber-1] = squarePrism;
+                		 break;
+                	 case "TriangularPrism":
+                		 TriangularPrism triangularPrism = new TriangularPrism(Double.parseDouble(explodedLine[1]), Double.parseDouble(explodedLine[2]));
+                		 shapesArray[lineNumber-1] = triangularPrism;
+                		 break;
+                		 default:
+                			 System.out.println("Ops something went wrong with creating your object");
+                	 }
+                 }
+        	 
+        	//comparing according to user input
+     		switch(userInputComparisonType) {
+     		case "v":
+     			comparisonType = new VolumeComparator();
+     			break;
+     		case "a":
+     			comparisonType = new BaseAreaComparator();
+     			break;
+     		default:
+     			System.out.println("Oh no something went wrong");
+     		}
+     		
+     		
+     		
+     		//sorting according to user input
+     		switch(sortingAlgorithm) {
+     		case "b":
+     			BubbleSort.bubbleSort(shapesArray, comparisonType);
+				for (GeometricShape n : shapesArray) {
+     			System.out.println(n.calculateBaseArea() + " ");
+				}
+     			break;
+     		case "s":
+     			
+     			break;
+     		case "i":
+     			
+     			break;
+     		case "m":
+     			
+     			break;
+     		case "q":
+     			
+     			break;
+     		case "z":
+     			
+     			break;
+     		}
+        	 
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }
