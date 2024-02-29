@@ -160,23 +160,23 @@ public class AppDriver
      			if (compareByHeight) {
      	            InsertionSort.insertionSort(shapesArray);
      	        } else {
-     	        	System.out.println("Faltou implementar insertion sort aqui");
+     	        	InsertionSort.insertionSort(shapesArray, comparisonType);
      	        }
      			
      			break;
      		case "m":
      			if (compareByHeight) {
-     	            MergeSort.mergeSort(shapesArray);
+     	            shapesArray = MergeSort.mergeSort(shapesArray);
      	        } else {
-     	        	MergeSort.mergeSort(shapesArray, comparisonType);
+     	        	shapesArray = MergeSort.mergeSort(shapesArray, comparisonType);
      	        }
      			
      			break;
      		case "q":
      			if (compareByHeight) {
-     				System.out.println("Faltou implementar quickSort aqui");
+     				QuickSort.quickSort(shapesArray, 1, shapesArray.length - 1);;
      	        } else {
-     	        	System.out.println("Faltou implementar quickSort aqui");
+     	        	QuickSort.quickSort(shapesArray, comparisonType, 0, shapesArray.length - 1);;
      	        }
      			
      			break;

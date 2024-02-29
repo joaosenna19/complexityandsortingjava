@@ -8,33 +8,51 @@ public class SnapshotPrinter {
 
 	        switch(comparisonType) {
 	            case "v":
-	                System.out.println("Volume of First Element: " + shapesArray[0].calculateVolume());
+	            	double volumeOne = shapesArray[1].calculateVolume();
+                	String formattedVolumeOne = String.format("%.2f", volumeOne);
+	                System.out.println("Base Area of First Element: " + formattedVolumeOne);
 	                for(int i = 1; i < shapesArray.length; i++) {
 	                    if(i % 1000 == 0) {
-	                        System.out.println("Volume of element " + (i/1000) + "000 of the Array: " + shapesArray[i].calculateVolume());
+	                    	double volume = shapesArray[i].calculateVolume();
+	                    	String formattedVolume = String.format("%.2f", volume);
+	                    	System.out.println("Volume of element " + (i/1000) + "000 of the Array: " + formattedVolume);
 	                    }
 	                }
-	                System.out.println("Volume of Last Element: " + shapesArray[shapesArray.length - 1].calculateVolume());
+	                double volume = shapesArray[shapesArray.length - 1].calculateVolume();
+                	String formattedVolume = String.format("%.2f", volume);
+	                System.out.println("Volume of Last Element: " + formattedVolume);
 	                break;
 
 	            case "a":
-	                System.out.println("Base Area of First Element: " + shapesArray[0].calculateBaseArea());
+	            	double areaOne = shapesArray[1].calculateBaseArea();
+                	String formattedAreaOne = String.format("%.2f", areaOne);
+	                System.out.println("Base Area of First Element: " + formattedAreaOne);
 	                for(int i = 1; i < shapesArray.length; i++) {
 	                    if(i % 1000 == 0) {
-	                        System.out.println("Base Area " + (i/1000) + "000 of the Array: " + shapesArray[i].calculateBaseArea());
+	                    	double area = shapesArray[i].calculateBaseArea();
+	                    	String formattedArea = String.format("%.2f", area);
+	                    	System.out.println("Area of element " + (i/1000) + "000 of the Array: " + formattedArea);
 	                    }
 	                }
-	                System.out.println("Base Area of Last Element: " + shapesArray[shapesArray.length - 1].calculateBaseArea());
+	                double area = shapesArray[shapesArray.length - 1].calculateBaseArea();
+                	String formattedArea = String.format("%.2f", area);
+	                System.out.println("Volume of Last Element: " + formattedArea);
 	                break;
 
 	            case "h":
-	                System.out.println("Height of First Element: " + shapesArray[0].getHeight());
+	            	double heightOne = shapesArray[1].getHeight();
+                	String formattedHeightOne = String.format("%.2f", heightOne);
+	                System.out.println("Base Area of First Element: " + formattedHeightOne);
 	                for(int i = 1; i < shapesArray.length; i++) {
 	                    if(i % 1000 == 0) {
-	                        System.out.println("Height of " + (i/1000) + "000 of the Array: " + shapesArray[i].getHeight());
+	                    	double height = shapesArray[i].getHeight();
+	                    	String formattedHeight = String.format("%.2f", height);
+	                    	System.out.println("Area of element " + (i/1000) + "000 of the Array: " + formattedHeight);
 	                    }
 	                }
-	                System.out.println("Height of Last Element: " + shapesArray[shapesArray.length - 1].getHeight());
+	                double height = shapesArray[shapesArray.length - 1].getHeight();
+                	String formattedHeight = String.format("%.2f", height);
+	                System.out.println("Volume of Last Element: " + formattedHeight);
 	                break;
 
 	            default:
