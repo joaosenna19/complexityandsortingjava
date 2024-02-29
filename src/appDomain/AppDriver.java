@@ -192,9 +192,9 @@ public class AppDriver
      			break;
      		case "q":
      			if (compareByHeight) {
-     				System.out.println("Faltou implementar quickSort aqui");
+     				QuickSort.quickSort(shapesArray, 1, shapesArray.length - 1);;
      	        } else {
-     	        	System.out.println("Faltou implementar quickSort aqui");
+     	        	QuickSort.quickSort(shapesArray, comparisonType, 0, shapesArray.length - 1);;
      	        }
          		// Recording current time AFTER the sorting algorithm ran
          		algEndTime = System.currentTimeMillis();
