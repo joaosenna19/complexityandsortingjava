@@ -146,10 +146,6 @@ public class AppDriver
      	        } else {
      	            BubbleSort.bubbleSort(shapesArray, comparisonType);
      	        }
-         		// Recording current time AFTER the sorting algorithm ran
-         		algEndTime = System.currentTimeMillis();
-         		// Printing time spent
-         		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
      			
      			break;
      		case "s":
@@ -158,10 +154,6 @@ public class AppDriver
      	        } else {
      	        	SelectionSort.selectionSort(shapesArray, comparisonType);
      	        }
-         		// Recording current time AFTER the sorting algorithm ran
-         		algEndTime = System.currentTimeMillis();
-         		// Printing time spent
-         		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
      			
      			break;
      		case "i":
@@ -170,10 +162,6 @@ public class AppDriver
      	        } else {
      	        	System.out.println("Faltou implementar insertion sort aqui");
      	        }
-         		// Recording current time AFTER the sorting algorithm ran
-         		algEndTime = System.currentTimeMillis();
-         		// Printing time spent
-         		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
      			
      			break;
      		case "m":
@@ -182,12 +170,6 @@ public class AppDriver
      	        } else {
      	        	MergeSort.mergeSort(shapesArray, comparisonType);
      	        }
-         		// Recording current time AFTER the sorting algorithm ran
-         		algEndTime = System.currentTimeMillis();
-         		// Printing time spent
-         		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
-         		
-         		SnapshotPrinter.printSnapshot(shapesArray, userInputComparisonType);
      			
      			break;
      		case "q":
@@ -196,10 +178,6 @@ public class AppDriver
      	        } else {
      	        	System.out.println("Faltou implementar quickSort aqui");
      	        }
-         		// Recording current time AFTER the sorting algorithm ran
-         		algEndTime = System.currentTimeMillis();
-         		// Printing time spent
-         		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
      			
      			break;
      		case "z":
@@ -208,23 +186,19 @@ public class AppDriver
      	        } else {
      	            HeapSort.heapSort(shapesArray, comparisonType);
      	        }
-         		// Recording current time AFTER the sorting algorithm ran
-         		algEndTime = System.currentTimeMillis();
-         		// Printing time spent
-         		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
          		
      			break;
      		}
      		
+     		algEndTime = System.currentTimeMillis();
+     		// Printing time spent
+     		System.out.println("Time spent to sort the Array is: " + (algEndTime - algStartTime) + " miliseconds!");
+     		
+     		SnapshotPrinter.printSnapshot(shapesArray, userInputComparisonType);
         	
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	private static void displayElements() {
-		// TODO Auto-generated method stub
-		
 	}
 }
