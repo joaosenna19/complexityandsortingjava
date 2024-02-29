@@ -29,7 +29,7 @@ public class Test {
 		System.out.println();
 		System.out.println("******************Merge");
 		
-		Integer[] arr4 = {2, 5, 1, 9, 4, 3, 0, 10, 25, 44, 5};
+		Integer[] arr4 = {2, 5, 1, 9, 4, 3, 0, 10, 25, 44, 5, 55555555};
 		arr4 = MergeSort.mergeSort(arr4);
 		for(Integer n : arr4) {
 			System.out.print(n + " ");
